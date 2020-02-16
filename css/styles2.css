@@ -1,0 +1,68 @@
+img {
+    width: 130px;
+}
+
+.main-mid {
+    height: 300px;
+}
+
+.main-mid>div {
+    display: flex;
+}
+
+main .main-mid div {
+    padding: 0;
+}
+
+
+/* details */
+
+.main-mid .details {
+    display: flex;
+}
+
+.main-mid .details>div:nth-child(1) {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.main-mid .details p {
+    margin-bottom: 5px;
+}
+
+
+/* picture */
+
+.main-mid .picture {
+    margin-left: 20%;
+}
+
+.main-mid .picture h4 {
+    margin-bottom: 10px;
+}
+
+
+/* buttons light */
+
+.main-top-left div>div:nth-child(1) button,
+.main-top-left div>div:nth-child(1) button i {
+    cursor: pointer;
+    color: rgb(56, 91, 155);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.main-top-left div:nth-child(3) div:nth-child(1) {
+    border-bottom: none;
+}
+
+.main-top-left div>div:nth-child(2) button,
+.main-top-left div>div:nth-child(2) button i {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 91, 155);
+}
+
+.main-top-left div:nth-child(3) div:nth-child(2) {
+    margin-right: 20px;
+    border-bottom: 2px rgb(56, 91, 155) solid;
+}
