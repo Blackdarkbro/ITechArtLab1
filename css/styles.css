@@ -23,6 +23,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .inTime {
     color: rgb(47, 153, 47);
 }
@@ -37,6 +41,16 @@ button {
 
 header button {
     color: rgb(56, 91, 155);
+}
+
+.orders-list::-webkit-scrollbar,
+main::-webkit-scrollbar {
+    width: 12px;
+}
+
+.orders-list::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
+    background-color: rgb(175, 175, 175);
 }
 
 
@@ -64,7 +78,7 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 250px;
+    min-width: 290px;
     height: 100vh;
     border-right: 1px rgba(0, 0, 0, 0.089) solid;
 }
@@ -124,14 +138,14 @@ aside h4 i {
 
 /* search */
 
-aside .search-block {
+.search-block {
     width: 95%;
     border: 1px solid rgba(0, 0, 0, 0.342);
     padding: 2px 0 2px 0;
     margin: 0 auto;
 }
 
-aside .search-block input {
+.search-block input {
     width: 70%;
     height: 20px;
     border: none;
@@ -140,12 +154,11 @@ aside .search-block input {
     padding-left: 5px;
 }
 
-aside .search-block button {
+.search-block button {
     width: 10%;
     border: none;
     color: #5B6469;
     background-color: inherit;
-    cursor: pointer;
 }
 
 
@@ -157,20 +170,23 @@ aside .search-block button {
     overflow-y: auto;
 }
 
-.orders-list::-webkit-scrollbar {
-    width: 12px;
-}
-
-.orders-list::-webkit-scrollbar-thumb {
-    background-color: rgb(175, 175, 175);
-}
-
 .order {
     display: flex;
     flex-direction: column;
     height: 90px;
     padding: 5px 10px 0px 10px;
     border-bottom: 1px rgba(0, 0, 0, 0.089) solid;
+}
+
+.order:hover {
+    background-color: rgb(226, 238, 248);
+}
+
+.order h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 35px;
+    max-width: 200px;
 }
 
 .order div {
@@ -225,10 +241,11 @@ main article {
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(226, 238, 248);
-    height: 220px;
+    min-height: 220px;
 }
 
 .main-top-left {
+    width: 70%;
     padding: 15px 0 0px 30px;
     display: flex;
     flex-direction: column;
@@ -279,7 +296,7 @@ main article {
 
 .main-top-right {
     font-size: 1.1rem;
-    padding: 15px 30px;
+    padding: 15px 30px 0 30px;
 }
 
 .main-top-right span {
@@ -328,6 +345,9 @@ main article {
     background-color: #FAFAFA;
 }
 
+
+/* table */
+
 .main-bot table {
     width: 90%;
     border-collapse: collapse;
@@ -350,6 +370,13 @@ main article {
 .main-bot table tr {
     font-size: 0.8rem;
     border-bottom: 1px rgba(0, 0, 0, 0.164) solid;
+}
+
+
+/* hide headers on fullscreen */
+
+.main-bot table tr td span:first-child {
+    display: none;
 }
 
 .main-bot table td,
@@ -410,12 +437,14 @@ footer button {
 @media (max-width: 510px) {
     /* top-block */
     .main-top {
-        flex-direction: column;
+        /* flex-direction: column; */
         font-size: 0.7rem;
-        min-height: 220px;
+        min-height: 250px;
     }
-    .main-top-right span {
-        float: left;
+    .main-top-right {
+        padding: 15px 5px 0 0;
+        font-size: 0.8rem;
+        text-align: right;
     }
     /* mid-block */
     .main-mid {
@@ -451,9 +480,6 @@ footer button {
         flex-direction: column;
         font-size: 0.7rem;
     }
-    .main-bot table tr::before {
-        content: "\00A0\00A0\00A0\00A0Product:";
-    }
     .main-bot table td:nth-child(3),
     .main-bot table td:nth-child(4) {
         text-align: left;
@@ -461,5 +487,8 @@ footer button {
     .main-bot table td:nth-child(4) b,
     .main-bot table td:nth-child(2) b {
         font-weight: normal;
+    }
+    .main-bot table tr td span:first-child {
+        display: block;
     }
 }
