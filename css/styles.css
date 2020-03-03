@@ -193,11 +193,6 @@ aside h4 button {
     cursor: pointer;
 }
 
-
-/* .order:hover {
-    background-color: rgb(226, 238, 248);
-} */
-
 .order h4 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -285,24 +280,31 @@ main article {
     display: flex;
 }
 
-.main-top-left button {
+.main-top-left a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid rgb(56, 91, 155);
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0);
+    /* background-color: rgba(0, 0, 0, 0); */
     margin-bottom: 20px;
     width: 40px;
     height: 40px;
+    text-align: center;
 }
 
-.main-top-left button i {
+.main-top-left a i {
     color: rgb(56, 91, 155);
 }
 
-.main-top-left div>div:nth-child(1) button,
-.main-top-left div>div:nth-child(1) button i {
+.main-top-left div>div:nth-child(1) a {
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color: rgb(56, 91, 155);
     background-color: rgb(56, 91, 155);
+}
+
+.main-top-left div>div:nth-child(1) a i {
+    color: rgb(255, 255, 255);
 }
 
 .main-top-left div:nth-child(3) div:nth-child(1) {

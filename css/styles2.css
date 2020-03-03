@@ -40,22 +40,34 @@ main .main-mid div {
 
 /* buttons light */
 
-.main-top-left div>div:nth-child(1) button,
-.main-top-left div>div:nth-child(1) button i {
+
+/* light on active page */
+
+.main-top-left div>div:nth-child(2) a {
     cursor: pointer;
     color: rgb(56, 91, 155);
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(56, 91, 155);
+}
+
+.main-top-left div>div:nth-child(2) a i {
+    color: rgb(255, 255, 255);
+}
+
+
+/* light on unactive page */
+
+.main-top-left div>div:nth-child(1) a {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgb(226, 238, 248);
+}
+
+.main-top-left div>div:nth-child(1) a i {
+    color: rgb(56, 91, 155);
 }
 
 .main-top-left div:nth-child(3) div:nth-child(1) {
     border-bottom: none;
-}
-
-.main-top-left div>div:nth-child(2) button,
-.main-top-left div>div:nth-child(2) button i {
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    background-color: rgb(56, 91, 155);
 }
 
 .main-top-left div:nth-child(3) div:nth-child(2) {
