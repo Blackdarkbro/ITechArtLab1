@@ -14,138 +14,24 @@
     <div class="container">
         <aside>
             <div class="top">
-                <h4> <i class="fas fa-chevron-left"></i>Orders(10)</h4>
+                <h4> <button><i class="fas fa-chevron-left"></i></button>Orders (<span id="ordersNumber"></span>)</h4>
                 <div class="search-block">
                     <form action="">
-                        <input type="text" placeholder="Поиск" title="Enter an order name or a part of it">
-                        <button type="submit" id=""><i class="fas fa-search"></i></button>
-                        <button type="submit"><i class="fas fa-sync"></i></button>
+                        <input type="text" placeholder="Поиск" autocomplete="off" title="Enter an order name or a part of it" id="orderSearchInput">
+                        <button type="submit" id="findOrder" title="Search"><i class="fas fa-search"></i></button>
+                        <button type="submit" id="refreshOrders"><i class="fas fa-sync" title="refresh"></i></button>
                     </form>
                 </div>
             </div>
 
             <!-- Order list -->
-            <article class="orders-list">
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="urgent">Urgent</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="tooLate">Too late</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
+            <article class="orders-list" id="ordersList">
             </article>
             <div class="bot">
                 <button><i class="fas fa-bars"></i></button>
                 <button><i class="fas fa-filter"></i></button>
             </div>
-
         </aside>
-
 
         <div class="main-content">
             <header>
@@ -155,87 +41,56 @@
             <main>
                 <section class="main-top">
                     <div class="main-top-left">
-                        <h3>Order 7918</h3>
+                        <h3>Order <span id="orderId"></span></h3>
                         <div>
-                            <p>Customer: Kto-to Kto-to</p>
-                            <p>Ordered: 18 сент. 2016 г.</p>
-                            <p>Shipped: 26 сент. 2016 г.</p>
+                            <p>Customer: <span id="customer"></span></p>
+                            <p>Ordered: <span id="created"></span></p>
+                            <p>Shipped: <span id="shipped"></span></p>
                         </div>
                         <div>
                             <div>
-                                <button><a href="#"><i class="fas fa-truck fa-lg"></i></a></button>
+                                <button title="Shipping Address"><a href="#"><i class="fas fa-truck fa-lg"></i></a></button>
                             </div>
                             <div>
-                                <button title="Processor"><a href="./pages/secondPage.html"><i class="fas fa-user-alt fa-lg"></i></a></button>
+                                <button title="Customer information"><a href="./pages/secondPage.html"><i class="fas fa-user-alt fa-lg"></i></a></button>
                             </div>
                         </div>
                     </div>
                     <div class="main-top-right">
-                        <p>150 935,13</p>
+                        <p id="totalPrice"></p>
                         <span>EUR</span>
                     </div>
                 </section>
 
                 <section class="main-mid">
-                    <h3>Shipping Address</h3>
+                    <h3>Customer Info</h3>
                     <div>
-                        <p><b>Name:</b> <span>ExcellentParcet</span></p>
-                        <p><b>Street:</b> <span>Tottenham Court Road</span></p>
-                        <p><b>ZIP Code / City:</b> <span>N170AA London</span></p>
-                        <p><b>Region:</b> <span>Greater London</span></p>
-                        <p><b>Country:</b> <span>United Kingdom</span></p>
+                        <p><b>Name:</b> <span id="name"></span></p>
+                        <p><b>Street:</b> <span id="address"></span></p>
+                        <p><b>ZIP Code / City:</b> <span id="zip"></span></p>
+                        <p><b>Region:</b> <span id="region"></span></p>
+                        <p><b>Country:</b> <span id="country"></span></p>
                     </div>
                 </section>
                 <section class="main-bot">
-                    <table>
-                        <caption>Line Items (4)</caption>
+                    <h3>Line Items (<span id="productsNumber"></span>)</h3>
+                    <div class="search-block">
+                        <form action="">
+                            <input type="text" placeholder="Поиск" autocomplete="off" title="Enter an product name or a part of it" id="productsSearchInput">
+                            <button type="submit" id="findProduct" title="Search"><i class="fas fa-search"></i></button>
+                            <button type="submit" id="refreshProducts"><i class="fas fa-sync" title="refresh"></i></button>
+                        </form>
+                    </div>
+                    <table id="products">
                         <thead>
-                            <th>Product</th>
-                            <th>Unit Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
+                            <th>Product <i class="fas fa-sort"></i></th>
+                            <th>Unit Price <i class="fas fa-sort"></i></th>
+                            <th>Quantity <i class="fas fa-sort"></i></th>
+                            <th>Total <i class="fas fa-sort"></i> </th>
                         </thead>
-                        <tr>
-                            <td>
-                                <span>Product:</span>
-                                <b>Anissed Syrup</b><br>
-                                <span>1412</span>
-                            </td>
-                            <td><span>Unit Price:</span><span><b>65.89</b> EUR</span></td>
-                            <td><span>Quantity:</span><span>899</span></td>
-                            <td><span>Total:</span><span><b>59 235,11</b> EUR</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Product:</span>
-                                <b>Tunnbrod</b><br>
-                                <span>5672</span>
-                            </td>
-                            <td><span>Unit Price:</span><span><b>14.77</b> EUR</span></td>
-                            <td><span>Quantity:</span><span>2367</span></td>
-                            <td><span>Total:</span><span><b>34 960,59</b> EUR</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Product:</span>
-                                <b>Northwoods Cranberry Sauce</b><br>
-                                <span>1412</span>
-                            </td>
-                            <td><span>Unit Price:</span><span><b>61.69</b> EUR</span></td>
-                            <td><span>Quantity:</span><span>867</span></td>
-                            <td><span>Total:</span><span><b>53 485,23</b> EUR</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Product:</span>
-                                <b>Camembert Pierrot</b><br>
-                                <span>9505</span>
-                            </td>
-                            <td><span>Unit Price:</span><span><b>3.07</b> EUR</span></td>
-                            <td><span>Quantity:</span><span>1060</span></td>
-                            <td><span>Total:</span><span><b>3 254,20</b> EUR</span></td>
-                        </tr>
+                        <tbody>
 
+                        </tbody>
                     </table>
                 </section>
             </main>
@@ -246,6 +101,16 @@
 
 
     </div>
+    <script src="./js/data.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/functions.js"></script>
+
+    <script src="./js/sortProducts.js"></script>
+
+    <script src="./js/search/searchOrders.js"></script>
+    <script src="./js/search/searchProducts.js"></script>
+
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

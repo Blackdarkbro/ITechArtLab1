@@ -26,119 +26,8 @@
             </div>
 
             <!-- Order list -->
-            <article class="orders-list">
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="urgent">Urgent</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="tooLate">Too late</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
-                <section class="order">
-                    <div class="order-number">
-                        <h4>Order 7991</h4>
-                        <span>21.16.2016</span>
-                    </div>
-                    <div class="status">
-                        <span>Tortuga Restaurante</span>
-                        <span class="inTime">In time</span>
-                    </div>
-                    <div class="shipped">
-                        <span>Shipped: <time>26 сент. 2016 г.</time></span>
-                    </div>
-                </section>
-                <!--  -->
+            <article class="orders-list" id="orderList">
+
             </article>
             <div class="bot">
                 <button><i class="fas fa-bars"></i></button>
@@ -156,11 +45,11 @@
             <main>
                 <section class="main-top">
                     <div class="main-top-left">
-                        <h3>Order 7918</h3>
+                        <h3>Order <span id="orderId"></span></h3>
                         <div>
-                            <p>Customer: Kto-to Kto-to</p>
-                            <p>Ordered: 18 сент. 2016 г.</p>
-                            <p>Shipped: 26 сент. 2016 г.</p>
+                            <p>Customer: <span id="customer"></span></p>
+                            <p>Ordered: <span id="created"></span></p>
+                            <p>Shipped: <span id="shipped"></span></p>
                         </div>
                         <div>
                             <div>
@@ -179,25 +68,22 @@
 
                 <section class="main-mid">
                     <h3>Processor information</h4>
-                        <div>
-                            <div class="details">
-                                <div>
-                                    <p><b>Name:</b></p>
-                                    <p><b>Employee ID:</b> </p>
-                                    <p><b>Job Title:</b> </p>
-                                    <p><b>Phone:</b> </p>
-                                </div>
-                                <div>
-                                    <h4></h4>
-                                    <p>Jack Smith</p>
-                                    <p>7424</p>
-                                    <p>Developer</p>
-                                    <p>01781163487</p>
-                                </div>
+                        <div class="details">
+                            <div>
+                                <p><b>First Name:</b></p>
+                                <p><b>Last Name:</b></p>
+                                <p><b>Address:</b></p>
+                                <p><b>Phone:</b></p>
+                                <p><b>Email:</b></p>
                             </div>
-                            <div class="picture">
-                                <h4>Picture</h4>
-                                <img src="../images/avatar.jpg" alt="">
+                            <div>
+                                <!-- null h4 for right top-margin -->
+                                <h4></h4>
+                                <p id="firstName"></p>
+                                <p id="lastName"></p>
+                                <p id="customerAddress"></p>
+                                <p id="phone"></p>
+                                <p id="email"></p>
                             </div>
                         </div>
                 </section>
@@ -258,9 +144,10 @@
                 <button><i class="fas fa-envelope"></i></button>
             </footer>
         </div>
-
-
     </div>
+
+    <script src="../js/template.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
