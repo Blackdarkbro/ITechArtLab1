@@ -445,10 +445,10 @@ footer button {
         display: none;
     }
     header button {
+        display: block;
         flex-grow: 2;
         text-align: left;
         padding-left: 10px;
-        display: block;
     }
     header span {
         flex-grow: 2;

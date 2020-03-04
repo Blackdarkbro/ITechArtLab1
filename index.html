@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/lightningOrders.css">
     <!-- font-awesome -->
     <link rel="stylesheet" href="./fontawesome-free-5.12.1-web/css/all.min.css">
+
 </head>
 
 <body>
     <div class="container">
         <aside>
             <div class="top">
-                <h4> <button><i class="fas fa-chevron-left"></i></button>Orders (<span id="ordersNumber"></span>)</h4>
+                <h4> <button id="hiddenSidebar"><i class="fas fa-chevron-left"></i></button>Orders (<span id="ordersNumber"></span>)</h4>
                 <div class="search-block">
                     <form action="">
-                        <input type="text" placeholder="Поиск" autocomplete="off" title="Enter an order name or a part of it" id="orderSearchInput">
+                        <input type="text" placeholder="Search" autocomplete="off" title="Enter an order name or a part of it" id="orderSearchInput">
                         <button type="submit" id="findOrder" title="Search"><i class="fas fa-search"></i></button>
                         <button type="submit" id="refreshOrders"><i class="fas fa-sync" title="refresh"></i></button>
                     </form>
@@ -35,7 +37,7 @@
 
         <div class="main-content">
             <header>
-                <button><i class="fas fa-bars"></i></button>
+                <button id="showSidebar"><i class="fas fa-bars"></i></button>
                 <span>Order</span>
             </header>
             <main>
@@ -82,11 +84,11 @@
                         </form>
                     </div>
                     <table id="products">
-                        <thead>
-                            <th>Product <i class="fas fa-sort"></i></th>
-                            <th>Unit Price <i class="fas fa-sort"></i></th>
-                            <th>Quantity <i class="fas fa-sort"></i></th>
-                            <th>Total <i class="fas fa-sort"></i> </th>
+                        <thead data-sort-kind="asc">
+                            <th>Product <i class="fas fa-sort-amount-down-alt"></i></th>
+                            <th>Unit Price <i class="fas fa-sort-amount-down-alt"></i></th>
+                            <th>Quantity <i class="fas fa-sort-amount-down-alt"></i></th>
+                            <th>Total <i class="fas fa-sort-amount-down-alt"></i></th>
                         </thead>
                         <tbody>
 
@@ -109,6 +111,7 @@
     <script src="./js/search/searchOrders.js"></script>
     <script src="./js/search/searchProducts.js"></script>
 
+    <script src="./js/toggleSidebar.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

@@ -15,7 +15,7 @@
     <div class="container">
         <aside>
             <div class="top">
-                <h4> <button><i class="fas fa-chevron-left"></i></button>Orders (<span id="ordersNumber"></span>)</h4>
+                <h4> <button id="hiddenSidebar"><i class="fas fa-chevron-left"></i></button>Orders (<span id="ordersNumber"></span>)</h4>
                 <div class="search-block">
                     <form action="">
                         <input type="text" placeholder="Поиск" autocomplete="off" title="Enter an order name or a part of it" id="orderSearchInput">
@@ -37,7 +37,7 @@
 
         <div class="main-content">
             <header>
-                <button><i class="fas fa-bars"></i></button>
+                <button id="showSidebar"><i class="fas fa-bars"></i></button>
                 <span>Order</span>
             </header>
             <main>
@@ -122,6 +122,7 @@
     <script src="../js/search/searchOrders.js"></script>
     <script src="../js/search/searchProducts.js"></script>
 
+    <script src="../js/toggleSidebar.js"></script>
     <script src="../js/index.js"></script>
 </body>
 

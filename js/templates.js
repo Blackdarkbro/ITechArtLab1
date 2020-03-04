@@ -1,10 +1,10 @@
 class Order {
 
-    orderId = Order.createElement('span', 'orderId');
-    createdAt = Order.createElement('span', 'createdAt');
-    customer = Order.createElement('span', 'customer');
-    status = Order.createElement('span', 'status');
-    shippedAt = Order.createElement('time', 'shippedAt');
+    orderId = Order.createElement("span", "orderId");
+    createdAt = Order.createElement("span", "createdAt");
+    customer = Order.createElement("span", "customer");
+    status = Order.createElement("span", "status");
+    shippedAt = Order.createElement("time", "shippedAt");
 
     constructor(id, createdAt, customer, status, shippedAt) {
         this.orderId.textContent = id;
@@ -22,13 +22,13 @@ class Order {
     }
 
     compileOrder() {
-        let section = Order.createElement('section', 'order');
+        let section = Order.createElement("section", "order");
         section.dataset.id = "";
 
         // first div
-        let div1 = document.createElement('div');
+        let div1 = document.createElement("div");
 
-        let h4 = document.createElement('h4');
+        let h4 = document.createElement("h4");
 
         h4.textContent = "Order ";
 
@@ -36,12 +36,12 @@ class Order {
         div1.append(h4, this.createdAt);
 
         // second div
-        let div2 = document.createElement('div');
+        let div2 = document.createElement("div");
         div2.append(this.customer, this.status);
 
         // third div
-        let div3 = document.createElement('div');
-        let span = document.createElement('span');
+        let div3 = document.createElement("div");
+        let span = document.createElement("span");
         span.textContent = "Shipped ";
 
         span.appendChild(this.shippedAt);
@@ -55,56 +55,56 @@ class Order {
 }
 
 class TableRow {
-    productName = Order.createElement('b', 'productName');
-    productId = Order.createElement('span', 'productId');
-    currency = Order.createElement('span', 'currency');
-    price = Order.createElement('b', 'price');
-    quantity = Order.createElement('span', 'quantity');
-    totalPrice = Order.createElement('b', 'totalPrice');
+    productName = Order.createElement("b", "productName");
+    productId = Order.createElement("span", "productId");
+    currency = Order.createElement("span", "currency");
+    price = Order.createElement("b", "price");
+    quantity = Order.createElement("span", "quantity");
+    totalPrice = Order.createElement("b", "totalPrice");
 
     constructor(productId, productName, price, currency, quantity, totalPrice) {
         this.productName.textContent = productName;
         this.productId.textContent = productId;
         this.currency.textContent = currency;
-        this.price.textContent = price + ' ';
+        this.price.textContent = price + " ";
         this.quantity.textContent = quantity;
-        this.totalPrice.textContent = totalPrice + ' ';
+        this.totalPrice.textContent = totalPrice + " ";
     }
 
     compileRow() {
-        let row = document.createElement('tr');
+        let row = document.createElement("tr");
 
         // create first td
-        let firstTd = document.createElement('td');
-        let br = document.createElement('br');
+        let firstTd = document.createElement("td");
+        let br = document.createElement("br");
 
-        let span1 = document.createElement('span');
-        span1.textContent = 'Product:';
+        let span1 = document.createElement("span");
+        span1.textContent = "Product:";
 
         firstTd.append(span1, this.productName, br, this.productId);
 
         // create second td
-        let secondTd = document.createElement('td');
-        let span2 = document.createElement('span');
+        let secondTd = document.createElement("td");
+        let span2 = document.createElement("span");
 
-        span2.textContent = 'Unit Price:';
+        span2.textContent = "Unit Price:";
         let cloneCurrency = this.currency.cloneNode(true);
 
         secondTd.append(span2, this.price, cloneCurrency);
 
         // created third td
-        let thirdTd = document.createElement('td');
-        let span3 = document.createElement('span');
+        let thirdTd = document.createElement("td");
+        let span3 = document.createElement("span");
 
-        span3.textContent = 'Quantity:';
+        span3.textContent = "Quantity:";
 
         thirdTd.append(span3, this.quantity);
 
         // create fourth td
-        let fourthTd = document.createElement('td');
-        let span4 = document.createElement('span');
+        let fourthTd = document.createElement("td");
+        let span4 = document.createElement("span");
 
-        span4.textContent = 'Total:';
+        span4.textContent = "Total:";
 
         fourthTd.append(span4, this.totalPrice, this.currency);
 

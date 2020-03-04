@@ -1,24 +1,33 @@
-// defoult inner page
-addAllOrders();
-pasteInfoIntoPage(Orders[0].id);
-addProducts(Orders[0].id);
+showDefaultInfo();
+highlightActiveOrder();
 
-const ordersNumber = document.getElementById('ordersNumber');
-ordersNumber.textContent = Orders.length;
+function showDefaultInfo() {
 
-const documentOrders = document.querySelectorAll('.order');
+    if (Orders.length) {
+        addAllOrders();
+        pasteInfoIntoPage(Orders[0].id);
+        addProducts(Orders[0].id);
+    } else {
+        const ordersList = document.querySelector("#ordersList");
+        ordersList.textContent = "NO ORDERS"
+    }
+}
 
+function highlightActiveOrder() {
+    const documentOrders = document.querySelectorAll('.order');
+    const ordersList = document.querySelector("#ordersList");
 
-// light active order
-documentOrders.forEach(elem => {
+    documentOrders[0].classList.add("js-activeOrder");
 
-    elem.addEventListener('click', (event) => {
-        let targent = event.currentTarget;
+    ordersList.addEventListener('click', (event) => {
+        let target = event.target.closest(".order");
 
-        documentOrders.forEach(oo => {
+        if (!target) return;
+        if (!ordersList.contains(target)) return;
 
-            oo.style.background = "rgba(226, 238, 248, 0)"
-        })
-        targent.style.background = "rgb(226, 238, 248)";
+        documentOrders.forEach(element => {
+            element.classList.remove("js-activeOrder");
+        });
+        target.classList.add("js-activeOrder");
     });
-});
+}

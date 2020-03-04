@@ -1,0 +1,11 @@
+.js-mouseOverOrder {
+    border-bottom: 1px rgba(11, 94, 202, 0.315) solid;
+}
+
+.js-activeOrder {
+    background-color: rgb(226, 238, 248);
+}
+
+.js-activeColumn {
+    color: rgb(56, 91, 155);
+}

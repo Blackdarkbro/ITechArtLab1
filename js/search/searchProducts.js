@@ -1,9 +1,8 @@
-const inputProduct = document.getElementById('productsSearchInput');
-const findProductButton = document.getElementById('findProduct');
-const refreshProductsButton = document.getElementById('refreshProducts');
+const inputProduct = document.querySelector("#productsSearchInput");
+const findProductButton = document.querySelector("#findProduct");
+const refreshProductsButton = document.querySelector("#refreshProducts");
 
-
-findProductButton.addEventListener('click', event => {
+findProductButton.addEventListener("click", event => {
     let text = inputProduct.value.toLowerCase();
 
     if (text) {
@@ -11,7 +10,7 @@ findProductButton.addEventListener('click', event => {
     }
 });
 
-refreshProductsButton.addEventListener('click', event => {
+refreshProductsButton.addEventListener("click", event => {
     const products = document.querySelector('tbody');
 
     addProducts(products.dataset.id)
@@ -19,7 +18,8 @@ refreshProductsButton.addEventListener('click', event => {
 })
 
 function findProducts(text) {
-    const products = document.querySelector('tbody');
+    const products = document.querySelector("tbody");
+    const productsNumber = document.querySelector("#productsNumber");
 
     let searchResult = [];
 
@@ -35,5 +35,13 @@ function findProducts(text) {
         });
     });
     products.innerHTML = "";
-    products.append(...searchResult);
+    productsNumber.textContent = searchResult.length;
+
+    if (searchResult.length) {
+        products.append(...searchResult);
+    } else {
+        products.textContent = "No such products";
+    }
+
+
 }
