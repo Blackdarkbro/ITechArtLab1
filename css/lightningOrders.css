@@ -9,3 +9,12 @@
 .js-activeColumn {
     color: rgb(56, 91, 155);
 }
+
+.js-active-tab-underline {
+    border-bottom: 2px solid rgb(56, 91, 155);
+}
+
+.js-active-tab-icon {
+    background-color: rgb(56, 91, 155);
+    color: white !important;
+}

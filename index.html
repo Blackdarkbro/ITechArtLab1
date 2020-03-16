@@ -49,12 +49,12 @@
                             <p>Ordered: <span id="created"></span></p>
                             <p>Shipped: <span id="shipped"></span></p>
                         </div>
-                        <div>
-                            <div>
-                                <a title="Shipping Address" href="#"><i class="fas fa-truck fa-lg"></i></a>
+                        <div class="tabs">
+                            <div id="shippingTab" title="Shipping Address" class="js-active-tab-underline">
+                                <i class="fas fa-truck fa-lg js-active-tab-icon"></i>
                             </div>
-                            <div>
-                                <a title="Customer information" href="./pages/secondPage.html"><i class="fas fa-user-alt fa-lg"></i></a>
+                            <div id="customerTab" title="Customer information">
+                                <i class="fas fa-user-alt fa-lg"></i>
                             </div>
                         </div>
                     </div>
@@ -65,13 +65,15 @@
                 </section>
 
                 <section class="main-mid">
-                    <h3>Customer Info</h3>
-                    <div>
-                        <p><b>Name:</b> <span id="name"></span></p>
-                        <p><b>Street:</b> <span id="address"></span></p>
-                        <p><b>ZIP Code / City:</b> <span id="zip"></span></p>
-                        <p><b>Region:</b> <span id="region"></span></p>
-                        <p><b>Country:</b> <span id="country"></span></p>
+                    <div class="customer-info" data-active-tab="shippedTo">
+                        <h3>Shipping Address</h3>
+                        <div>
+                            <p><b id="key1"></b>: <span id="value1"></span></p>
+                            <p><b id="key2"></b>: <span id="value2"></span></p>
+                            <p><b id="key3"></b>: <span id="value3"></span></p>
+                            <p><b id="key4"></b>: <span id="value4"></span></p>
+                            <p><b id="key5"></b>: <span id="value5"></span></p>
+                        </div>
                     </div>
                 </section>
                 <section class="main-bot">
@@ -85,10 +87,10 @@
                     </div>
                     <table id="products">
                         <thead data-sort-kind="asc">
-                            <th>Product <i class="fas fa-sort-amount-down-alt"></i></th>
-                            <th>Unit Price <i class="fas fa-sort-amount-down-alt"></i></th>
-                            <th>Quantity <i class="fas fa-sort-amount-down-alt"></i></th>
-                            <th>Total <i class="fas fa-sort-amount-down-alt"></i></th>
+                            <th>Product <i class="fas fa-bars"></i></th>
+                            <th>Unit Price <i class="fas fa-bars"></i></th>
+                            <th>Quantity <i class="fas fa-bars"></i></th>
+                            <th>Total <i class="fas fa-bars"></i></th>
                         </thead>
                         <tbody>
 

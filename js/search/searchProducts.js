@@ -21,24 +21,29 @@ function findProducts(text) {
     const products = document.querySelector("tbody");
     const productsNumber = document.querySelector("#productsNumber");
 
-    let searchResult = [];
+    let orderId = products.dataset.id
+    let searchResult = new Set();
 
     Orders.forEach(order => {
         order.products.forEach(product => {
+            if (order.id == orderId) {
 
-            for (const key in product) {
-                if (product[key].toLowerCase().includes(text)) {
-
-                    searchResult.push(createProduct(products.dataset.id, product.id))
+                for (const key in product) {
+                    if (product[key].toLowerCase().includes(text)) {
+                        searchResult.add(product.id);
+                    }
                 }
             }
         });
     });
     products.innerHTML = "";
-    productsNumber.textContent = searchResult.length;
+    productsNumber.textContent = searchResult.size;
 
-    if (searchResult.length) {
-        products.append(...searchResult);
+    if (searchResult.size) {
+
+        searchResult.forEach(value => {
+            products.appendChild(createProduct(orderId, value))
+        });
     } else {
         products.textContent = "No such products";
     }
