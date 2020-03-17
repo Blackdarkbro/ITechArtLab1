@@ -1,60 +1,23 @@
-const products = document.querySelector("#products")
+const products = document.querySelector("#products");
 
 products.addEventListener("click", (event) => {
     let th = event.target;
     if (th.tagName != "TH") return;
 
-
     const iconsCollection = document.querySelectorAll("#products i");
     const thead = document.querySelector("#products thead");
     const headers = document.querySelectorAll("th");
+    const tbody = document.querySelector("tbody");
 
     let sortKind = changeSort(thead);
 
+    let productsData = getProductsData(tbody.dataset.id);
+    let sortedProductsData = sortProductsData(th.cellIndex, sortKind, productsData);
+
     highlightTarget(headers, th);
     replaceIcon(iconsCollection, sortKind);
-    sortProducts(th.cellIndex, sortKind);
+    renderSordProducts(sortedProductsData, tbody, tbody.dataset.id);
 });
-
-function sortProducts(colNum, sortKind) {
-    let tbody = document.querySelector('tbody');
-
-    let rowsArray = Array.from(tbody.rows);
-
-    Orders.forEach(order => {
-        order
-    })
-
-    rowsArray.sort((rowA, rowB) => {
-        let regexp = /\d+/;
-
-        let a = rowA.cells[colNum].innerHTML.match(regexp)[0];
-        let b = rowB.cells[colNum].innerHTML.match(regexp)[0];
-
-        if (colNum == 0) {
-            a = rowA.cells[colNum].innerHTML.substr(44);
-            b = rowB.cells[colNum].innerHTML.substr(44);
-
-            switch (sortKind) {
-                case "asc":
-                    return a > b ? 1 : -1;
-                case "desc":
-                    return b > a ? 1 : -1;
-            }
-        }
-
-        switch (sortKind) {
-            case "asc":
-                return a - b;
-            case "desc":
-                return b - a;
-            case "default":
-                return +rowA.cells[0].innerHTML.match(/\d+/)[0] - +rowB.cells[0].innerHTML.match(/\d+/)[0];
-        }
-    });
-
-    tbody.append(...rowsArray);
-}
 
 function replaceIcon(collection, sortKind) {
     collection.forEach(i => {
@@ -90,4 +53,91 @@ function changeSort(thead) {
     }
 
     return sortKind;
+}
+
+// functions to sort products
+function renderSordProducts(sortedProductsData, parent, orderId) {
+    parent.innerHTML = "";
+
+    sortedProductsData.forEach(product => {
+        parent.appendChild(createProduct(orderId, product.id));
+    })
+}
+
+function sortProductsData(colNum, sortKind, data) {
+    let sortedProdcts = data;
+
+    keysStore = {
+        "0": "name",
+        "1": "price",
+        "2": "quantity",
+        "3": "totalPrice"
+    }
+
+    sortedProdcts.sort((productA, productB) => {
+        let a = productA[keysStore[colNum]];
+        let b = productB[keysStore[colNum]];
+
+        if (colNum == 0) {
+            switch (sortKind) {
+                case "asc":
+                    return a > b ? 1 : -1;
+                case "desc":
+                    return b > a ? 1 : -1;
+            }
+        }
+
+        switch (sortKind) {
+            case "asc":
+                return a - b;
+            case "desc":
+                return b - a;
+            case "default":
+                return productA.id - productB.id;
+        }
+    });
+    return sortedProdcts;
+}
+
+function getProductsData(orderId) {
+    const productsSearchInput = document.querySelector("#productsSearchInput");
+
+    let orderIndex;
+    Orders.forEach((order, index) => {
+        if (order.id == orderId) orderIndex = index;
+    })
+
+    let data = [];
+
+    if (productsSearchInput.value) {
+        let idSet = findProducts(productsSearchInput.value)
+        data = getPartOfProducts(orderIndex, idSet);
+        console.log(data);
+    } else {
+        data = getFullProducts(orderIndex);
+    }
+
+    return data;
+}
+
+function getFullProducts(orderIndex) {
+    let data = [];
+
+    Orders[orderIndex].products.forEach(product => {
+        data.push(product);
+    });
+
+    return data;
+}
+
+function getPartOfProducts(orderIndex, idSet) {
+    let data = [];
+
+    Orders[orderIndex].products.forEach((product) => {
+        if (idSet.has(product.id)) {
+            data.push(product);
+        }
+    });
+
+    return data;
 }

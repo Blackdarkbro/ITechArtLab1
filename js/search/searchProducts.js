@@ -6,7 +6,8 @@ findProductButton.addEventListener("click", event => {
     let text = inputProduct.value.toLowerCase();
 
     if (text) {
-        findProducts(text)
+        let idStore = findProducts(text);
+        renderFindedProducts(idStore);
     }
 });
 
@@ -19,10 +20,9 @@ refreshProductsButton.addEventListener("click", event => {
 
 function findProducts(text) {
     const products = document.querySelector("tbody");
-    const productsNumber = document.querySelector("#productsNumber");
 
     let orderId = products.dataset.id
-    let searchResult = new Set();
+    let coincidentalId = new Set();
 
     Orders.forEach(order => {
         order.products.forEach(product => {
@@ -30,23 +30,30 @@ function findProducts(text) {
 
                 for (const key in product) {
                     if (product[key].toLowerCase().includes(text)) {
-                        searchResult.add(product.id);
+                        coincidentalId.add(product.id);
                     }
                 }
             }
         });
     });
+
+    return coincidentalId;
+}
+
+function renderFindedProducts(idSet) {
+    const products = document.querySelector("tbody");
+    const productsNumber = document.querySelector("#productsNumber");
+
+    let orderId = products.dataset.id
+
     products.innerHTML = "";
-    productsNumber.textContent = searchResult.size;
+    productsNumber.textContent = idSet.size;
 
-    if (searchResult.size) {
-
-        searchResult.forEach(value => {
-            products.appendChild(createProduct(orderId, value))
+    if (idSet.size) {
+        idSet.forEach(value => {
+            products.appendChild(createProduct(orderId, value));
         });
     } else {
         products.textContent = "No such products";
     }
-
-
 }
